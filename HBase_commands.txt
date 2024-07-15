@@ -1,0 +1,25 @@
+HADOOP HBASE:
+
+CREATE TABLE:
+* create 'books', 'info'
+
+OUTPUT:
+* scan 'table_name'
+
+INSERT:
+* put 'books', 'Harrp Potter', 'info:author', 'J.K. Rowling'
+* put 'books', 'Harrp Potter', 'info:genre', 'Fantasy'
+* put 'books', 'Harrp Potter', 'info:publication_year', '1997'
+
+UPDATE:
+* put 'books', 'Harrp Potter', 'info:publication_year', '2008'
+
+QUERY:
+* get 'books', 'Harrp Potter'
+
+DELETE:
+* disable 'table_name'
+* drop 'table_name'
+
+LIMIT OUTPUT:
+* scan 'table_name', {LIMIT => 2}

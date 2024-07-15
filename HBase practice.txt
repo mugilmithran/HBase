@@ -1,0 +1,51 @@
+log into putty(maria_dev)
+
+create
+create 'books', 'info'
+
+insert 
+put 'books', 'Harrp Potter', 'info:author', 'J.K. Rowling'
+put 'books', 'Harrp Potter', 'info:genre', 'Fantasy'
+put 'books', 'Harrp Potter', 'info:publication_year', '1997'
+
+update
+put 'books', 'Harrp Potter', 'info:publication_year', '2005'
+
+query
+get 'books', 'Harrp Potter' 
+
+disable 'books'
+
+drop 'books'
+
+--copy the employee.txt data file from local 
+
+hdfs dfs -copyFromLocal employee.txt /user/maria_dev/pig/employee.txt
+
+--go to hbase shell
+hbase shell
+
+--list all tables 
+list
+
+--create table and column family
+create 'emp', 'empinfo'
+
+--exit from habase shell
+exit
+
+--copy pig script from local(HBase.pig)
+hdfs dfs -copyFromLocal employee.txt /user/maria_dev/pig/HBase.pig
+
+pig lab65.pig
+
+disable 'emp'
+
+drop 'emp'
+
+
+scan 'emp', {LIMIT => 5}
+
+
+
+scan 'users', {COLUMNS => 'userinfo:age', FILTER => "ValueFilter(=,'binary:23')"}
